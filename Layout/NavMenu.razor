@@ -1,0 +1,24 @@
+@inject NavigationManager NavigationManager
+
+<nav class="navbar">
+    <div class="navbar-inner">
+        <a href="/" class="navbar-brand">
+            <span class="brand-bracket">[</span>PORTFOLIO<span class="brand-bracket">]</span>
+        </a>
+        <button class="navbar-toggle" @onclick="ToggleMenu" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="navbar-links @(menuOpen ? "open" : "")">
+            <li><NavLink href="/" Match="NavLinkMatch.All" class="nav-link" @onclick="CloseMenu">Home</NavLink></li>
+            <li><NavLink href="/projects" class="nav-link" @onclick="CloseMenu">Projects</NavLink></li>
+            <li><NavLink href="/about" class="nav-link" @onclick="CloseMenu">About Me</NavLink></li>
+            <li><NavLink href="/contact" class="nav-link" @onclick="CloseMenu">Contact</NavLink></li>
+        </ul>
+    </div>
+</nav>
+
+@code {
+    private bool menuOpen = false;
+    private void ToggleMenu() => menuOpen = !menuOpen;
+    private void CloseMenu() => menuOpen = false;
+}

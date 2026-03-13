@@ -1,0 +1,147 @@
+@page "/contact"
+
+<PageTitle>Contact — Portfolio</PageTitle>
+
+<!-- HERO -->
+<div class="page-hero">
+    <div class="container">
+        <h1>Get In Touch</h1>
+        <p>Whether you have a project in mind, a question, or just want to say hello — my inbox is always open.</p>
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="section-full">
+    <div class="section">
+        <div class="grid-2" style="align-items: start; gap: 3rem;">
+
+            <!-- CONTACT FORM -->
+            <div>
+                <h2 class="section-title"><span class="title-accent">—</span> Send a Message</h2>
+                <form @onsubmit="HandleSubmit" @onsubmit:preventDefault>
+                    <div class="form-group">
+                        <label class="form-label" for="name">Full Name</label>
+                        <input id="name" type="text" class="form-control" placeholder="Lorem Ipsum"
+                               @bind="formName" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input id="email" type="email" class="form-control" placeholder="lorem@ipsum.dev"
+                               @bind="formEmail" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="subject">Subject</label>
+                        <input id="subject" type="text" class="form-control" placeholder="Project proposal, collaboration..."
+                               @bind="formSubject" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="message">Message</label>
+                        <textarea id="message" class="form-control" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
+                                  @bind="formMessage"></textarea>
+                    </div>
+
+                    @if (submitted)
+                    {
+                        <div class="card card-teal" style="margin-bottom: 1rem; padding: 1rem;">
+                            <strong>✓ Message sent!</strong> Lorem ipsum dolor sit amet — I'll get back to you as soon as possible.
+                        </div>
+                    }
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        Send Message →
+                    </button>
+                </form>
+            </div>
+
+            <!-- CONTACT INFO -->
+            <div>
+                <h2 class="section-title"><span class="title-accent">—</span> Contact Info</h2>
+
+                <div class="contact-info-item card-yellow">
+                    <span class="contact-icon">📧</span>
+                    <div class="contact-info-text">
+                        <strong>Email</strong>
+                        <span>lorem.ipsum@example.dev</span>
+                    </div>
+                </div>
+
+                <div class="contact-info-item" style="background-color: var(--light-blue);">
+                    <span class="contact-icon">📍</span>
+                    <div class="contact-info-text">
+                        <strong>Location</strong>
+                        <span>Paris, France (Open to remote)</span>
+                    </div>
+                </div>
+
+                <div class="contact-info-item" style="background-color: var(--sage);">
+                    <span class="contact-icon">💼</span>
+                    <div class="contact-info-text">
+                        <strong>LinkedIn</strong>
+                        <span>linkedin.com/in/loremipsum</span>
+                    </div>
+                </div>
+
+                <div class="contact-info-item" style="background-color: var(--off-white);">
+                    <span class="contact-icon">🐙</span>
+                    <div class="contact-info-text">
+                        <strong>GitHub</strong>
+                        <span>github.com/loremipsum</span>
+                    </div>
+                </div>
+
+                <div class="contact-info-item card-red">
+                    <span class="contact-icon">🐦</span>
+                    <div class="contact-info-text">
+                        <strong>Twitter / X</strong>
+                        <span>&#64;loremipsum_dev</span>
+                    </div>
+                </div>
+
+                <!-- Availability card -->
+                <div class="card card-navy" style="margin-top: 1.5rem;">
+                    <h3 class="card-title" style="color: var(--yellow);">Availability</h3>
+                    <p class="card-text" style="margin-top: 0.5rem;">
+                        Currently <span style="color: var(--teal); font-weight: 700;">available</span> for
+                        full-time positions, freelance projects, and consulting opportunities.
+                    </p>
+                    <p class="card-text" style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.75;">
+                        Typical response time: 24–48 hours.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SOCIAL LINKS BANNER -->
+<div class="section-full" style="background-color: var(--dark-navy); border-top: 3px solid #000;">
+    <div class="section" style="text-align: center;">
+        <h2 class="section-title section-title-light" style="display: block; text-align: center; border-bottom: none; margin-bottom: 1.5rem;">
+            Find Me Online
+        </h2>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="#" class="btn btn-secondary">GitHub</a>
+            <a href="#" class="btn btn-teal">LinkedIn</a>
+            <a href="#" class="btn btn-primary">Twitter / X</a>
+            <a href="#" class="btn" style="background-color: var(--off-white);">Dev.to</a>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string formName = string.Empty;
+    private string formEmail = string.Empty;
+    private string formSubject = string.Empty;
+    private string formMessage = string.Empty;
+    private bool submitted = false;
+
+    private void HandleSubmit()
+    {
+        // Placeholder: in a real app, send the form data to an API
+        submitted = true;
+        formName = string.Empty;
+        formEmail = string.Empty;
+        formSubject = string.Empty;
+        formMessage = string.Empty;
+    }
+}
