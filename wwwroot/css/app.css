@@ -28,7 +28,7 @@
 /* === BASE === */
 html, body {
     font-family: 'Space Grotesk', sans-serif;
-    background-color: var(--off-white);
+    /* background-color: var(--off-white); */
     color: var(--dark-navy);
     font-size: 16px;
     line-height: 1.6;
@@ -95,6 +95,10 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 1px;
     transition: all 0.15s ease;
     display: block;
+}
+
+.nav-link:hover {
+    background-color: var(--mid-blue) !important;
 }
 
 .navbar-links .nav-link:hover,
@@ -215,7 +219,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .intro-text p {
     font-size: 1rem;
-    max-width: 520px;
+    max-width: 100%;
     color: #444;
     margin-top: 0.75rem;
 }
@@ -250,9 +254,9 @@ h1, h2, h3, h4, h5, h6 {
     border-top: none;
 }
 
-.section-alt {
+/* .section-alt {
     background-color: var(--sage);
-}
+} */
 
 .section-dark {
     background-color: var(--dark-navy);
