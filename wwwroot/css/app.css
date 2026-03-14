@@ -28,7 +28,7 @@
 /* === BASE === */
 html, body {
     font-family: 'Space Grotesk', sans-serif;
-    /* background-color: var(--off-white); */
+    background-color: var(--off-white);
     color: var(--dark-navy);
     font-size: 16px;
     line-height: 1.6;
@@ -137,7 +137,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .marquee-content {
     display: inline-block;
-    animation: marquee 25s linear infinite;
+    animation: marquee 50s linear infinite;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.2rem;
     letter-spacing: 4px;
@@ -198,6 +198,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: clamp(2.5rem, 6vw, 5rem);
     line-height: 1;
     color: var(--dark-navy);
+    outline: none;
 }
 
 .intro-text h1 .highlight {
@@ -254,9 +255,9 @@ h1, h2, h3, h4, h5, h6 {
     border-top: none;
 }
 
-/* .section-alt {
+.section-alt {
     background-color: var(--sage);
-} */
+}
 
 .section-dark {
     background-color: var(--dark-navy);
@@ -371,6 +372,7 @@ h1, h2, h3, h4, h5, h6 {
 .tag-teal { background-color: var(--teal); color: var(--off-white); }
 .tag-blue { background-color: var(--mid-blue); color: var(--off-white); }
 .tag-orange { background-color: var(--orange); color: var(--off-white); }
+.tag-yellow { background-color: var(--yellow); }
 .tag-light { background-color: var(--light-blue); }
 .tag-sage { background-color: var(--sage); }
 
@@ -391,6 +393,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .timeline-item {
+    background-color: white !important;
     position: relative;
     margin-bottom: 1.5rem;
     padding: 1.25rem 1.5rem;
