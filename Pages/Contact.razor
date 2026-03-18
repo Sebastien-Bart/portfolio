@@ -6,7 +6,7 @@
 <div class="page-hero">
     <div class="container">
         <h1>Get In Touch</h1>
-        <p>Whether you have a project in mind, a question, or just want to say hello — my inbox is always open.</p>
+        <p>Whether you have a project in mind, a question, or just want to say hi — my inbox is always open.</p>
     </div>
 </div>
 
@@ -16,7 +16,7 @@
         <div class="grid-2" style="align-items: start; gap: 3rem;">
 
             <!-- CONTACT FORM -->
-            <div>
+            @* <div>
                 <h2 class="section-title"><span class="title-accent">—</span> Send a Message</h2>
                 <form @onsubmit="HandleSubmit" @onsubmit:preventDefault>
                     <div class="form-group">
@@ -51,7 +51,7 @@
                         Send Message →
                     </button>
                 </form>
-            </div>
+            </div> *@
 
             <!-- CONTACT INFO -->
             <div>
@@ -61,40 +61,34 @@
                     <span class="contact-icon">📧</span>
                     <div class="contact-info-text">
                         <strong>Email</strong>
-                        <span>lorem.ipsum@example.dev</span>
+                        <span>sebastien0bart@gmail.com</span>
                     </div>
                 </div>
 
-                <div class="contact-info-item" style="background-color: var(--light-blue);">
+                <div class="contact-info-item">
                     <span class="contact-icon">📍</span>
                     <div class="contact-info-text">
                         <strong>Location</strong>
-                        <span>Paris, France (Open to remote)</span>
+                        <span>Ornans, France</span>
                     </div>
                 </div>
 
-                <div class="contact-info-item" style="background-color: var(--sage);">
+                <div class="contact-info-item">
                     <span class="contact-icon">💼</span>
                     <div class="contact-info-text">
                         <strong>LinkedIn</strong>
-                        <span>linkedin.com/in/loremipsum</span>
+                        <span>linkedin.com/in/sébastien-bart-91353617b</span>
                     </div>
+                    <a href="https://www.linkedin.com/in/sébastien-bart-91353617b" target="_blank" class="btn btn-secondary">Go !</a>
                 </div>
 
-                <div class="contact-info-item" style="background-color: var(--off-white);">
+                <div class="contact-info-item">
                     <span class="contact-icon">🐙</span>
                     <div class="contact-info-text">
                         <strong>GitHub</strong>
-                        <span>github.com/loremipsum</span>
+                        <span>github.com/sebastien-bart </span>
                     </div>
-                </div>
-
-                <div class="contact-info-item card-red">
-                    <span class="contact-icon">🐦</span>
-                    <div class="contact-info-text">
-                        <strong>Twitter / X</strong>
-                        <span>&#64;loremipsum_dev</span>
-                    </div>
+                    <a href="https://github.com/sebastien-bart" target="_blank" class="btn btn-secondary">Go !</a>
                 </div>
 
                 <!-- Availability card -->
@@ -102,10 +96,10 @@
                     <h3 class="card-title" style="color: var(--yellow);">Availability</h3>
                     <p class="card-text" style="margin-top: 0.5rem;">
                         Currently <span style="color: var(--teal); font-weight: 700;">available</span> for
-                        full-time positions, freelance projects, and consulting opportunities.
+                        full-time positions and consulting opportunities.
                     </p>
                     <p class="card-text" style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.75;">
-                        Typical response time: 24–48 hours.
+                        Typical response time: 24 hours.
                     </p>
                 </div>
             </div>
@@ -114,19 +108,17 @@
 </div>
 
 <!-- SOCIAL LINKS BANNER -->
-<div class="section-full" style="background-color: var(--dark-navy); border-top: 3px solid #000;">
+@* <div class="section-full" style="background-color: var(--dark-navy); border-top: 3px solid #000;">
     <div class="section" style="text-align: center;">
         <h2 class="section-title section-title-light" style="display: block; text-align: center; border-bottom: none; margin-bottom: 1.5rem;">
             Find Me Online
         </h2>
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="#" class="btn btn-secondary">GitHub</a>
-            <a href="#" class="btn btn-teal">LinkedIn</a>
-            <a href="#" class="btn btn-primary">Twitter / X</a>
-            <a href="#" class="btn" style="background-color: var(--off-white);">Dev.to</a>
+            <a href="https://github.com/sebastien-bart" target="_blank" class="btn btn-secondary">GitHub</a>
+            <a href="https://www.linkedin.com/in/sébastien-bart-91353617b" target="_blank" class="btn btn-teal">LinkedIn</a>
         </div>
     </div>
-</div>
+</div> 
 
 @code {
     private string formName = string.Empty;
@@ -137,11 +129,10 @@
 
     private void HandleSubmit()
     {
-        // Placeholder: in a real app, send the form data to an API
         submitted = true;
         formName = string.Empty;
         formEmail = string.Empty;
         formSubject = string.Empty;
         formMessage = string.Empty;
     }
-}
+} *@
