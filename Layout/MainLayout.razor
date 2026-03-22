@@ -1,4 +1,6 @@
 @inherits LayoutComponentBase
+@inject LanguageService Lang
+@implements IDisposable
 
 <NavMenu />
 
@@ -8,6 +10,11 @@
 
 <footer class="site-footer">
     <div class="container">
-        Made by me ! ヾ(⌐■_■)ノ <br>&copy; @DateTime.Now.Year
+        @Lang.T("footer.text") <br />&copy; @DateTime.Now.Year
     </div>
 </footer>
+
+@code {
+    protected override void OnInitialized() => Lang.OnLanguageChanged += StateHasChanged;
+    public void Dispose() => Lang.OnLanguageChanged -= StateHasChanged;
+}

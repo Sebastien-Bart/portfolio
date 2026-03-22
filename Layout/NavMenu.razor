@@ -1,4 +1,5 @@
-@inject NavigationManager NavigationManager
+@inject LanguageService Lang
+@implements IDisposable
 
 <nav class="navbar">
     <div class="navbar-inner">
@@ -9,10 +10,16 @@
             <span></span><span></span><span></span>
         </button>
         <ul class="navbar-links @(menuOpen ? "open" : "")">
-            <li><NavLink href="/" Match="NavLinkMatch.All" class="nav-link" @onclick="CloseMenu">Home</NavLink></li>
-            <li><NavLink href="/projects" class="nav-link" @onclick="CloseMenu">Projects</NavLink></li>
-            <li><NavLink href="/about" class="nav-link" @onclick="CloseMenu">About Me</NavLink></li>
-            <li><NavLink href="/contact" class="nav-link" @onclick="CloseMenu">Contact</NavLink></li>
+            <li><NavLink href="/" Match="NavLinkMatch.All" class="nav-link" @onclick="CloseMenu">@Lang.T("nav.home")</NavLink></li>
+            <li><NavLink href="/projects" class="nav-link" @onclick="CloseMenu">@Lang.T("nav.projects")</NavLink></li>
+            <li><NavLink href="/about" class="nav-link" @onclick="CloseMenu">@Lang.T("nav.about")</NavLink></li>
+            <li><NavLink href="/contact" class="nav-link" @onclick="CloseMenu">@Lang.T("nav.contact")</NavLink></li>
+            <li class="lang-switcher">
+                <button class="lang-btn @(Lang.Current == LanguageService.Language.EN ? "active" : "")"
+                        @onclick='() => Lang.SetLanguage(LanguageService.Language.EN)'>EN</button>
+                <button class="lang-btn @(Lang.Current == LanguageService.Language.FR ? "active" : "")"
+                        @onclick='() => Lang.SetLanguage(LanguageService.Language.FR)'>FR</button>
+            </li>
         </ul>
     </div>
 </nav>
@@ -21,4 +28,7 @@
     private bool menuOpen = false;
     private void ToggleMenu() => menuOpen = !menuOpen;
     private void CloseMenu() => menuOpen = false;
+
+    protected override void OnInitialized() => Lang.OnLanguageChanged += StateHasChanged;
+    public void Dispose() => Lang.OnLanguageChanged -= StateHasChanged;
 }

@@ -1,12 +1,14 @@
 @page "/contact"
+@inject LanguageService Lang
+@implements IDisposable
 
 <PageTitle>Contact — Sébastien Bart</PageTitle>
 
 <!-- HERO -->
 <div class="page-hero">
     <div class="container">
-        <h1>Get In Touch</h1>
-        <p>Whether you have a project in mind, a question, or just want to say hi — my inbox is always open.</p>
+        <h1>@Lang.T("contact.hero.title")</h1>
+        <p>@Lang.T("contact.hero.subtitle")</p>
     </div>
 </div>
 
@@ -15,60 +17,22 @@
     <div class="section">
         <div class="grid-2" style="align-items: start; gap: 3rem;">
 
-            <!-- CONTACT FORM -->
-            @* <div>
-                <h2 class="section-title"><span class="title-accent">—</span> Send a Message</h2>
-                <form @onsubmit="HandleSubmit" @onsubmit:preventDefault>
-                    <div class="form-group">
-                        <label class="form-label" for="name">Full Name</label>
-                        <input id="name" type="text" class="form-control" placeholder="Lorem Ipsum"
-                               @bind="formName" />
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="email">Email Address</label>
-                        <input id="email" type="email" class="form-control" placeholder="lorem@ipsum.dev"
-                               @bind="formEmail" />
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="subject">Subject</label>
-                        <input id="subject" type="text" class="form-control" placeholder="Project proposal, collaboration..."
-                               @bind="formSubject" />
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="message">Message</label>
-                        <textarea id="message" class="form-control" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
-                                  @bind="formMessage"></textarea>
-                    </div>
-
-                    @if (submitted)
-                    {
-                        <div class="card card-teal" style="margin-bottom: 1rem; padding: 1rem;">
-                            <strong>✓ Message sent!</strong> Lorem ipsum dolor sit amet — I'll get back to you as soon as possible.
-                        </div>
-                    }
-
-                    <button type="submit" class="btn btn-primary" style="width: 100%; text-align: center;">
-                        Send Message →
-                    </button>
-                </form>
-            </div> *@
-
             <!-- CONTACT INFO -->
             <div>
-                <h2 class="section-title"><span class="title-accent">—</span> Contact Info</h2>
+                <h2 class="section-title"><span class="title-accent">—</span> @Lang.T("contact.info.title")</h2>
 
                 <div class="contact-info-item card-yellow">
                     <span class="contact-icon">📧</span>
                     <div class="contact-info-text">
-                        <strong>Email</strong>
-                        <span>sebastien0bart@gmail.com</span>
+                        <strong>@Lang.T("contact.info.email.label")</strong>
+                        <span>sebastien0bart&#64;gmail.com</span>
                     </div>
                 </div>
 
                 <div class="contact-info-item">
                     <span class="contact-icon">📍</span>
                     <div class="contact-info-text">
-                        <strong>Location</strong>
+                        <strong>@Lang.T("contact.info.location.label")</strong>
                         <span>Ornans, France</span>
                     </div>
                 </div>
@@ -76,63 +40,38 @@
                 <div class="contact-info-item">
                     <span class="contact-icon">💼</span>
                     <div class="contact-info-text">
-                        <strong>LinkedIn</strong>
+                        <strong>@Lang.T("contact.info.linkedin.label")</strong>
                         <span>linkedin.com/in/sébastien-bart-91353617b</span>
                     </div>
-                    <a href="https://www.linkedin.com/in/sébastien-bart-91353617b" target="_blank" class="btn btn-secondary">Go !</a>
+                    <a href="https://www.linkedin.com/in/sébastien-bart-91353617b" target="_blank"
+                       class="btn btn-secondary" style="flex-shrink: 0;">@Lang.T("contact.btn.go")</a>
                 </div>
 
                 <div class="contact-info-item">
                     <span class="contact-icon">🐙</span>
                     <div class="contact-info-text">
-                        <strong>GitHub</strong>
-                        <span>github.com/sebastien-bart </span>
+                        <strong>@Lang.T("contact.info.github.label")</strong>
+                        <span>github.com/sebastien-bart</span>
                     </div>
-                    <a href="https://github.com/sebastien-bart" target="_blank" class="btn btn-secondary">Go !</a>
+                    <a href="https://github.com/sebastien-bart" target="_blank"
+                       class="btn btn-secondary" style="flex-shrink: 0;">@Lang.T("contact.btn.go")</a>
                 </div>
 
                 <!-- Availability card -->
                 <div class="card card-navy" style="margin-top: 1.5rem;">
-                    <h3 class="card-title" style="color: var(--yellow);">Availability</h3>
-                    <p class="card-text" style="margin-top: 0.5rem;">
-                        Currently <span style="color: var(--teal); font-weight: 700;">available</span> for
-                        full-time positions and consulting opportunities.
-                    </p>
+                    <h3 class="card-title" style="color: var(--yellow);">@Lang.T("contact.availability.title")</h3>
+                    <p class="card-text" style="margin-top: 0.5rem;">@((MarkupString)Lang.T("contact.availability.text"))</p>
                     <p class="card-text" style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.75;">
-                        Typical response time: 24 hours.
+                        @Lang.T("contact.availability.response")
                     </p>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
 
-<!-- SOCIAL LINKS BANNER -->
-@* <div class="section-full" style="background-color: var(--dark-navy); border-top: 3px solid #000;">
-    <div class="section" style="text-align: center;">
-        <h2 class="section-title section-title-light" style="display: block; text-align: center; border-bottom: none; margin-bottom: 1.5rem;">
-            Find Me Online
-        </h2>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="https://github.com/sebastien-bart" target="_blank" class="btn btn-secondary">GitHub</a>
-            <a href="https://www.linkedin.com/in/sébastien-bart-91353617b" target="_blank" class="btn btn-teal">LinkedIn</a>
-        </div>
-    </div>
-</div> 
-
 @code {
-    private string formName = string.Empty;
-    private string formEmail = string.Empty;
-    private string formSubject = string.Empty;
-    private string formMessage = string.Empty;
-    private bool submitted = false;
-
-    private void HandleSubmit()
-    {
-        submitted = true;
-        formName = string.Empty;
-        formEmail = string.Empty;
-        formSubject = string.Empty;
-        formMessage = string.Empty;
-    }
-} *@
+    protected override void OnInitialized() => Lang.OnLanguageChanged += StateHasChanged;
+    public void Dispose() => Lang.OnLanguageChanged -= StateHasChanged;
+}

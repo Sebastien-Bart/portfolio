@@ -1,4 +1,6 @@
 @page "/"
+@inject LanguageService Lang
+@implements IDisposable
 
 <PageTitle>Home — Sébastien Bart</PageTitle>
 
@@ -6,18 +8,15 @@
 <section style="border-bottom: 3px solid var(--dark-navy);">
     <div class="intro-wrapper">
         <div class="intro-avatar">
-            <img src="images/pp_pro_square.jpg" alt="photooooo" class="avatar-image" width="100%">
+            <img src="images/pp_pro_square.jpg" alt="👤" class="avatar-image" width="100%">
         </div>
         <div class="intro-text">
             <h1>Sébastien <span class="highlight">BART</span></h1>
-            <span class="role">Software Engineer</span>
-            <p>
-                Hi, I'm Sébastien, a 26 year old software engineer based in France with a master degree in Computer Science, especially in developping and managing softwares.
-                Ressourcefull, createfull, passionate about technology and agile management, with a taste for adventure and discovery, I am always looking for new challenges and opportunities to grow.
-            </p>
+            <span class="role">@Lang.T("home.role")</span>
+            <p>@Lang.T("home.intro")</p>
             <div class="intro-actions">
-                <a href="/projects" class="btn btn-primary">View Projects</a>
-                <a href="/contact" class="btn btn-secondary">Contact Me</a>
+                <a href="/projects" class="btn btn-primary">@Lang.T("home.btn.projects")</a>
+                <a href="/contact" class="btn btn-secondary">@Lang.T("home.btn.contact")</a>
             </div>
         </div>
     </div>
@@ -26,12 +25,7 @@
 <!-- MARQUEE BANNER -->
 <div class="marquee-banner">
     <span class="marquee-content">
-        ✦ DEVELOPER &nbsp;&nbsp;&nbsp; ✦ DESIGNER &nbsp;&nbsp;&nbsp; ✦ PROBLEM SOLVER &nbsp;&nbsp;&nbsp; ✦ OPEN TO OPPORTUNITIES &nbsp;&nbsp;&nbsp;
-        ✦ DEVELOPER &nbsp;&nbsp;&nbsp; ✦ DESIGNER &nbsp;&nbsp;&nbsp; ✦ PROBLEM SOLVER &nbsp;&nbsp;&nbsp; ✦ OPEN TO OPPORTUNITIES &nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        ✦ DEVELOPER &nbsp;&nbsp;&nbsp; ✦ DESIGNER &nbsp;&nbsp;&nbsp; ✦ PROBLEM SOLVER &nbsp;&nbsp;&nbsp; ✦ OPEN TO OPPORTUNITIES &nbsp;&nbsp;&nbsp;
-        ✦ DEVELOPER &nbsp;&nbsp;&nbsp; ✦ DESIGNER &nbsp;&nbsp;&nbsp; ✦ PROBLEM SOLVER &nbsp;&nbsp;&nbsp; ✦ OPEN TO OPPORTUNITIES &nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        @((MarkupString)Lang.T("home.marquee")) @((MarkupString)Lang.T("home.marquee"))
     </span>
 </div>
 
@@ -41,19 +35,19 @@
         <div class="grid-4">
             <div class="stat-box" style="background-color: var(--red); border-color: var(--off-white); box-shadow: 4px 4px 0 var(--off-white);">
                 <div class="stat-number" style="color: var(--off-white);">4+</div>
-                <div class="stat-label" style="color: var(--off-white);">Years of Experience</div>
+                <div class="stat-label" style="color: var(--off-white);">@Lang.T("home.stats.experience")</div>
             </div>
             <div class="stat-box" style="background-color: var(--yellow); border-color: var(--off-white); box-shadow: 4px 4px 0 var(--off-white);">
-                <div class="stat-number" style="color: var(--dark-navy);">THOUSANDS</div>
-                <div class="stat-label" style="color: var(--dark-navy);">Tickets solved</div>
+                <div class="stat-number" style="color: var(--dark-navy);">@Lang.T("home.stats.thousands")</div>
+                <div class="stat-label" style="color: var(--dark-navy);">@Lang.T("home.stats.tickets")</div>
             </div>
             <div class="stat-box" style="background-color: var(--teal); border-color: var(--off-white); box-shadow: 4px 4px 0 var(--off-white);">
                 <div class="stat-number" style="color: var(--off-white);">10+</div>
-                <div class="stat-label" style="color: var(--off-white);">Technologies Used</div>
+                <div class="stat-label" style="color: var(--off-white);">@Lang.T("home.stats.tech")</div>
             </div>
             <div class="stat-box" style="background-color: var(--orange); border-color: var(--off-white); box-shadow: 4px 4px 0 var(--off-white);">
                 <div class="stat-number" style="color: var(--off-white);">965</div>
-                <div class="stat-label" style="color: var(--off-white);">TOEIC SCORE</div>
+                <div class="stat-label" style="color: var(--off-white);">@Lang.T("home.stats.toeic")</div>
             </div>
         </div>
     </div>
@@ -62,65 +56,53 @@
 <!-- EDUCATION -->
 <div class="section-full section-alt">
     <div class="section">
-        <h2 class="section-title"><span class="title-accent">—</span> Education</h2>
+        <h2 class="section-title"><span class="title-accent">—</span> @Lang.T("home.education.title")</h2>
         <div class="grid-2">
             <div class="diploma-card card-yellow">
                 <span class="diploma-year">2020 - 2022</span>
-                <h3 class="card-title">Master in Computer Science</h3>
-                <p class="card-meta">University of Lille &mdash; Lille, France</p>
-                <p class="card-text">
-                    Specialisation in Software Engineering. Graduated with honors.
-                    Master's thesis on  the energy consumption of the development and use of IT solutions.
-                </p>
+                <h3 class="card-title">@Lang.T("home.edu.master.title")</h3>
+                <p class="card-meta">@Lang.T("home.edu.master.school") &mdash; Lille, France</p>
+                <p class="card-text">@Lang.T("home.edu.master.desc")</p>
                 <div class="tags">
-                    <span class="tag tag-orange">Gratuated with honours</span>
-                    <span class="tag">Software Engineering</span>
-                    <span class="tag tag-teal">Software management</span>
+                    <span class="tag tag-orange">@Lang.T("home.edu.master.tag1")</span>
+                    <span class="tag">@Lang.T("home.edu.master.tag2")</span>
+                    <span class="tag tag-teal">@Lang.T("home.edu.master.tag3")</span>
                 </div>
             </div>
             <div class="diploma-card card-light-blue">
                 <span class="diploma-year">2017 - 2020</span>
-                <h3 class="card-title">Bachelor's degree in Computer Science</h3>
-                <p class="card-meta">University of Lille &mdash; Lille, France</p>
-                <p class="card-text">
-                    First year entirely done in english. General overview of computer science. 
-                </p>
+                <h3 class="card-title">@Lang.T("home.edu.bachelor.title")</h3>
+                <p class="card-meta">@Lang.T("home.edu.bachelor.school") &mdash; Lille, France</p>
+                <p class="card-text">@Lang.T("home.edu.bachelor.desc")</p>
                 <div class="tags">
-                    <span class="tag tag-blue">Web Dev</span>
-                    <span class="tag tag-yellow">Network</span>
-                    <span class="tag tag-sage">System Programming</span>
-                    <span class="tag tag-teal">OOP Programming</span>
+                    <span class="tag tag-blue">@Lang.T("home.edu.bachelor.tag1")</span>
+                    <span class="tag tag-yellow">@Lang.T("home.edu.bachelor.tag2")</span>
+                    <span class="tag tag-sage">@Lang.T("home.edu.bachelor.tag3")</span>
+                    <span class="tag tag-teal">@Lang.T("home.edu.bachelor.tag4")</span>
                 </div>
             </div>
-        
         </div>
-        <div class="diploma-card card-teal" style="margin-top: 32px">
-                <span class="diploma-year">2017 - 2020</span>
-                <h3 class="card-title">High Scool Diploma</h3>
-                <p class="card-meta">Lycée des Flandres &mdash; Hazebrouck, France</p>
-                <p class="card-text">
-                    High school diploma with a specialisation in science.
-                </p>
-                <div class="tags">
-                    <span class="tag tag-orange">Gratuated with high honours</span>
-                </div>
+        <div class="diploma-card card-teal" style="margin-top: 1.5rem;">
+            <span class="diploma-year">2017</span>
+            <h3 class="card-title">@Lang.T("home.edu.highschool.title")</h3>
+            <p class="card-meta">@Lang.T("home.edu.highschool.school") &mdash; Hazebrouck, France</p>
+            <p class="card-text">@Lang.T("home.edu.highschool.desc")</p>
+            <div class="tags">
+                <span class="tag tag-orange">@Lang.T("home.edu.highschool.tag1")</span>
             </div>
+        </div>
     </div>
 </div>
 
 <!-- WORK EXPERIENCE -->
 <div class="section-full">
     <div class="section">
-        <h2 class="section-title"><span class="title-accent">—</span> Work Experience</h2>
+        <h2 class="section-title"><span class="title-accent">—</span> @Lang.T("home.experience.title")</h2>
         <div class="timeline">
             <div class="timeline-item">
-                <h3 class="timeline-title">C# (.NET) / Java Developer</h3>
-                <p class="timeline-meta">Ankama &mdash; Roubaix, France &nbsp;|&nbsp; November 2022 – August 2025</p>
-                <p class="timeline-text">
-                    I joined Ankama as part of the technical porting of the video game Dofus from flash technology to the Unity game engine.
-                    In a team of 10 Front-end developpers, I developped the new features, fixed bugs and optimized the performance of the game.
-                    I also was in charge of the development of the new UIs and assured code quality through numeruous code reviews.
-                </p>
+                <h3 class="timeline-title">@Lang.T("home.exp1.title")</h3>
+                <p class="timeline-meta">Ankama &mdash; Roubaix, France &nbsp;|&nbsp; @Lang.T("home.exp1.period")</p>
+                <p class="timeline-text">@Lang.T("home.exp1.desc")</p>
                 <div class="tags">
                     <span class="tag tag-blue">Unity</span>
                     <span class="tag">C# (.NET)</span>
@@ -134,14 +116,9 @@
                 </div>
             </div>
             <div class="timeline-item">
-                <h3 class="timeline-title">Support Engineer</h3>
-                <p class="timeline-meta">Decathlon &mdash; Croix, France &nbsp;|&nbsp; September 2021 – September 2022</p>
-                <p class="timeline-text">
-                    Integrated in the core of the supply chain, in the production department team, I implemented monitoring of the databases and applications used by the production countries.
-                    I also set up visualizations of numerous KPIs according to the needs of the different teams.
-                    I facilitated some agile ceremonies. I also volunteered with the "Sustainable Value Chain for Industry" group to implement a system for
-                    monitoring consumption metrics for our software.
-                </p>
+                <h3 class="timeline-title">@Lang.T("home.exp2.title")</h3>
+                <p class="timeline-meta">Decathlon &mdash; Croix, France &nbsp;|&nbsp; @Lang.T("home.exp2.period")</p>
+                <p class="timeline-text">@Lang.T("home.exp2.desc")</p>
                 <div class="tags">
                     <span class="tag tag-blue">Splunk</span>
                     <span class="tag">SQL</span>
@@ -149,21 +126,16 @@
                     <span class="tag tag-orange">PostgreSQL</span>
                     <span class="tag tag-red">Oracle</span>
                     <span class="tag tag-yellow">Javascript</span>
-                    <span class="tag tag-light">Google suite</span>
+                    <span class="tag tag-light">Google Suite</span>
                     <span class="tag tag-sage">Scrum</span>
                     <span class="tag tag-blue">ITIL</span>
                     <span class="tag">SRE (System Reliability Engineering)</span>
                 </div>
             </div>
             <div class="timeline-item">
-                <h3 class="timeline-title">C# Developper</h3>
-                <p class="timeline-meta">INRIA &mdash; Villeneuve d'Ascq, France &nbsp;|&nbsp; April 2021 – August 2021</p>
-                <p class="timeline-text">
-                    I joined INRIA to support the technical development of a doctoral student's thesis, which focused on 
-                    "Interaction Techniques for Object Selection and Facial Expression Control in Virtual Reality." 
-                    We were supervised by two professors. My role was to gamify the experience and set up a VR meeting scene where users could, 
-                    among other things, project documents, interact with objects, and so on all across the network.
-                </p>
+                <h3 class="timeline-title">@Lang.T("home.exp3.title")</h3>
+                <p class="timeline-meta">INRIA &mdash; Villeneuve d'Ascq, France &nbsp;|&nbsp; @Lang.T("home.exp3.period")</p>
+                <p class="timeline-text">@Lang.T("home.exp3.desc")</p>
                 <div class="tags">
                     <span class="tag tag-blue">C#</span>
                     <span class="tag">Unity</span>
@@ -179,11 +151,11 @@
 <!-- SKILLS -->
 <div class="section-full section-alt">
     <div class="section">
-        <h2 class="section-title"><span class="title-accent">—</span> Skills</h2>
+        <h2 class="section-title"><span class="title-accent">—</span> @Lang.T("home.skills.title")</h2>
         <div class="grid-2">
             <!-- Technical Skills -->
             <div>
-                <h3 style="font-size: 1.2rem; margin-bottom: 1.25rem; letter-spacing: 1px;">Technical Skills</h3>
+                <h3 style="font-size: 1.2rem; margin-bottom: 1.25rem; letter-spacing: 1px;">@Lang.T("home.skills.technical")</h3>
                 <div class="skill-item">
                     <div class="skill-label"><span>C# / .NET</span><span>90%</span></div>
                     <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
@@ -221,23 +193,28 @@
                     <div class="skill-bar"><div class="skill-fill" style="width: 70%; background-color: var(--teal);"></div></div>
                 </div>
             </div>
-            <!-- Soft Skills & Tools -->
+            <!-- Tools & Soft Skills -->
             <div>
-                <h3 style="font-size: 1.2rem; margin-bottom: 1.25rem; letter-spacing: 1px;">Tools & Soft Skills</h3>
+                <h3 style="font-size: 1.2rem; margin-bottom: 1.25rem; letter-spacing: 1px;">@Lang.T("home.skills.tools")</h3>
                 <div class="grid-2" style="gap: 0.75rem;">
-                    <div class="tag tag-blue" style="text-align: center; padding: 0.6rem; font-size: 0.8rem;">Agile Methodology</div>
-                    <div class="tag" style="text-align: center; padding: 0.6rem; font-size: 0.8rem;">Git</div>
-                    <div class="tag tag-teal" style="text-align: center; padding: 0.6rem; font-size: 0.8rem;">CI/CD Pipelines</div>
-                    <div class="tag tag-orange" style="text-align: center; padding: 0.6rem; font-size: 0.8rem;">Jira / Youtrack</div>
-                    <div class="tag tag-red" style="text-align: center; padding: 0.6rem; font-size: 0.8rem;">Cloud Platforms</div>
-                    <div class="tag tag-yellow" style="text-align: center; padding: 0.6rem; font-size: 0.8rem;">Software Architecture</div>
-                    <div class="tag tag-light" style="text-align: center; padding: 0.6rem; font-size: 0.8rem;">REST / SOAP APIs</div>
-                    <div class="tag tag-blue" style="text-align: center; padding: 0.6rem; font-size: 0.8rem;">UI / UX</div>
-                    <div class="tag" style="text-align: center; padding: 0.6rem; font-size: 0.8rem;">Technical Documentation</div>
-                    <div class="tag tag-teal" style="text-align: center; padding: 0.6rem; font-size: 0.8rem;">Code review</div>
-                    <div class="tag tag-orange" style="text-align: center; padding: 0.6rem; font-size: 0.8rem;">Strong Communication & Empathy</div>
+                    <div class="tag tag-blue" style="text-align: center; padding: 0.6rem; font-size: 0.8rem;">@Lang.T("home.skill.agile")</div>
+                    <div class="tag" style="text-align: center; padding: 0.6rem; font-size: 0.8rem;">@Lang.T("home.skill.git")</div>
+                    <div class="tag tag-teal" style="text-align: center; padding: 0.6rem; font-size: 0.8rem;">@Lang.T("home.skill.cicd")</div>
+                    <div class="tag tag-orange" style="text-align: center; padding: 0.6rem; font-size: 0.8rem;">@Lang.T("home.skill.tracking")</div>
+                    <div class="tag tag-red" style="text-align: center; padding: 0.6rem; font-size: 0.8rem;">@Lang.T("home.skill.cloud")</div>
+                    <div class="tag tag-yellow" style="text-align: center; padding: 0.6rem; font-size: 0.8rem;">@Lang.T("home.skill.architecture")</div>
+                    <div class="tag tag-light" style="text-align: center; padding: 0.6rem; font-size: 0.8rem;">@Lang.T("home.skill.api")</div>
+                    <div class="tag tag-blue" style="text-align: center; padding: 0.6rem; font-size: 0.8rem;">@Lang.T("home.skill.uiux")</div>
+                    <div class="tag" style="text-align: center; padding: 0.6rem; font-size: 0.8rem;">@Lang.T("home.skill.documentation")</div>
+                    <div class="tag tag-teal" style="text-align: center; padding: 0.6rem; font-size: 0.8rem;">@Lang.T("home.skill.codereview")</div>
+                    <div class="tag tag-orange" style="text-align: center; padding: 0.6rem; font-size: 0.8rem;">@Lang.T("home.skill.communication")</div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+@code {
+    protected override void OnInitialized() => Lang.OnLanguageChanged += StateHasChanged;
+    public void Dispose() => Lang.OnLanguageChanged -= StateHasChanged;
+}

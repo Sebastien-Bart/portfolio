@@ -1,8 +1,15 @@
 @page "/not-found"
 @layout MainLayout
+@inject LanguageService Lang
+@implements IDisposable
 
 <div class="not-found">
     <h1>404</h1>
-    <p>Oops — this page doesn't exist.</p>
-    <a href="/" class="btn btn-primary">← Back Home</a>
+    <p>@Lang.T("notfound.subtitle")</p>
+    <a href="/" class="btn btn-primary">@Lang.T("notfound.btn")</a>
 </div>
+
+@code {
+    protected override void OnInitialized() => Lang.OnLanguageChanged += StateHasChanged;
+    public void Dispose() => Lang.OnLanguageChanged -= StateHasChanged;
+}

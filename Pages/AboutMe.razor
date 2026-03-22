@@ -1,12 +1,14 @@
 @page "/about"
+@inject LanguageService Lang
+@implements IDisposable
 
 <PageTitle>About Me — Sébastien Bart</PageTitle>
 
 <!-- HERO -->
 <div class="page-hero">
     <div class="container">
-        <h1>About Me</h1>
-        <p>Beyond the code — who I am, what drives me, and how I spend my time away from the keyboard.</p>
+        <h1>@Lang.T("about.hero.title")</h1>
+        <p>@Lang.T("about.hero.subtitle")</p>
     </div>
 </div>
 
@@ -15,42 +17,35 @@
     <div class="section">
         <div class="grid-2" style="align-items: start;">
             <div>
-                <h2 class="section-title"><span class="title-accent">—</span> Who I Am</h2>
-                <p style="font-size: 1.05rem; margin-bottom: 1rem;">
-                    I was born and raised in a small village in northern France. From a very young age, I was immersed in the world of video games,
-                    and this gradually nurtured my passion for computer science. I quickly wanted to work in the video game industry,
-                    and I'm very proud to already be able to say that I've done it!
-                </p>
-                <p style="font-size: 1.05rem; margin-bottom: 1rem;">
-                    Even though I play video games much less these days, I still have a passion for tech and I still love solving problems!
-                     If you can't find me behind a screen, look for me on the trails or at the gym!
-                </p>
+                <h2 class="section-title"><span class="title-accent">—</span> @Lang.T("about.whoiam.title")</h2>
+                <p style="font-size: 1.05rem; margin-bottom: 1rem;">@Lang.T("about.bio1")</p>
+                <p style="font-size: 1.05rem;">@Lang.T("about.bio2")</p>
             </div>
             <div>
                 <div class="card card-yellow">
-                    <h3 class="card-title">Quick Facts</h3>
+                    <h3 class="card-title">@Lang.T("about.facts.title")</h3>
                     <table style="width: 100%; border-collapse: collapse; margin-top: 0.5rem;">
                         <tr style="border-bottom: 2px solid var(--dark-navy);">
-                            <td style="padding: 0.5rem 0; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; width: 40%;">Location</td>
+                            <td style="padding: 0.5rem 0; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; width: 40%;">@Lang.T("about.facts.location")</td>
                             <td style="padding: 0.5rem 0;">Ornans, France</td>
                         </tr>
                         <tr style="border-bottom: 2px solid var(--dark-navy);">
-                            <td style="padding: 0.5rem 0; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">Age</td>
+                            <td style="padding: 0.5rem 0; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">@Lang.T("about.facts.age")</td>
                             <td style="padding: 0.5rem 0;">26</td>
                         </tr>
                         <tr style="border-bottom: 2px solid var(--dark-navy);">
-                            <td style="padding: 0.5rem 0; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">Languages</td>
-                            <td style="padding: 0.5rem 0;">French (Native), English (C1)</td>
+                            <td style="padding: 0.5rem 0; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">@Lang.T("about.facts.languages")</td>
+                            <td style="padding: 0.5rem 0;">@Lang.T("about.facts.languages.value")</td>
                         </tr>
                         <tr style="border-bottom: 2px solid var(--dark-navy);">
-                            <td style="padding: 0.5rem 0; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">Status</td>
+                            <td style="padding: 0.5rem 0; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">@Lang.T("about.facts.status")</td>
                             <td style="padding: 0.5rem 0;">
-                                <span class="tag tag-teal">Open to Work</span>
+                                <span class="tag tag-teal">@Lang.T("about.facts.opentowork")</span>
                             </td>
                         </tr>
                         <tr>
-                            <td style="padding: 0.5rem 0; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">Availability</td>
-                            <td style="padding: 0.5rem 0;">Immediate</td>
+                            <td style="padding: 0.5rem 0; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">@Lang.T("about.facts.availability.label")</td>
+                            <td style="padding: 0.5rem 0;">@Lang.T("about.facts.availability.value")</td>
                         </tr>
                     </table>
                 </div>
@@ -62,35 +57,27 @@
 <!-- HOBBIES -->
 <div class="section-full section-alt">
     <div class="section">
-        <h2 class="section-title"><span class="title-accent">—</span> Hobbies & Interests</h2>
+        <h2 class="section-title"><span class="title-accent">—</span> @Lang.T("about.hobbies.title")</h2>
         <div class="grid-3">
             <div class="hobby-card" style="background-color: var(--off-white);">
                 <span class="hobby-icon">🎮</span>
-                <h3 class="hobby-title">Gaming</h3>
-                <p class="card-text">
-                    As I said, I still play video games from time to time! With the right equipment, I try a bit of everything, but God of War remains my favorite.
-                </p>
+                <h3 class="hobby-title">@Lang.T("about.hobby.gaming.title")</h3>
+                <p class="card-text">@Lang.T("about.hobby.gaming.desc")</p>
             </div>
             <div class="hobby-card card-teal">
                 <span class="hobby-icon">📚</span>
-                <h3 class="hobby-title">Reading</h3>
-                <p class="card-text">
-                    I have a well-stocked library, mainly filled with science fiction, fantasy, and comic books. Unfortunately, the books tend to pile up faster than I can read them... whoops!
-                </p>
+                <h3 class="hobby-title">@Lang.T("about.hobby.reading.title")</h3>
+                <p class="card-text">@Lang.T("about.hobby.reading.desc")</p>
             </div>
             <div class="hobby-card card-yellow">
                 <span class="hobby-icon">🏋️‍♂️</span>
-                <h3 class="hobby-title">Working out</h3>
-                <p class="card-text">
-                    "Mens sana in corpore sano" - A healthy mind in a healthy body. There's nothing like giving it your all to lift weights to unwind!
-                </p>
+                <h3 class="hobby-title">@Lang.T("about.hobby.workout.title")</h3>
+                <p class="card-text">@Lang.T("about.hobby.workout.desc")</p>
             </div>
             <div class="hobby-card" style="background-color: var(--light-blue);">
                 <span class="hobby-icon">🗺️</span>
-                <h3 class="hobby-title">Travelling</h3>
-                <p class="card-text">
-                    Discovering new things is incredibly enriching, and to do that, all you have to do is step outside your home!
-                </p>
+                <h3 class="hobby-title">@Lang.T("about.hobby.travel.title")</h3>
+                <p class="card-text">@Lang.T("about.hobby.travel.desc")</p>
             </div>
         </div>
     </div>
@@ -99,27 +86,25 @@
 <!-- VALUES -->
 <div class="section-full">
     <div class="section">
-        <h2 class="section-title"><span class="title-accent">—</span> What I Value (at work)</h2>
+        <h2 class="section-title"><span class="title-accent">—</span> @Lang.T("about.values.title")</h2>
         <div class="grid-3">
             <div class="card card-red">
-                <h3 class="card-title">Continuous Learning</h3>
-                <p class="card-text">
-                    Stagnation is something that scares me; I always want to learn, whether through my successes or my failures, I always want to improve.
-                </p>
+                <h3 class="card-title">@Lang.T("about.value1.title")</h3>
+                <p class="card-text">@Lang.T("about.value1.desc")</p>
             </div>
             <div class="card card-light-blue">
-                <h3 class="card-title">Clean code...</h3>
-                <p class="card-text">
-                    a well-thought-out, elegant solution that benefits everyone, both for development and maintenance
-                </p>
+                <h3 class="card-title">@Lang.T("about.value2.title")</h3>
+                <p class="card-text">@Lang.T("about.value2.desc")</p>
             </div>
             <div class="card" style="background-color: var(--gold);">
-                <h3 class="card-title">...that works !</h3>
-                <p class="card-text">
-                    But it has to work! Far too often, we forget that the most important thing in software engineering is that it works!
-                </p>
+                <h3 class="card-title">@Lang.T("about.value3.title")</h3>
+                <p class="card-text">@Lang.T("about.value3.desc")</p>
             </div>
         </div>
     </div>
 </div>
 
+@code {
+    protected override void OnInitialized() => Lang.OnLanguageChanged += StateHasChanged;
+    public void Dispose() => Lang.OnLanguageChanged -= StateHasChanged;
+}

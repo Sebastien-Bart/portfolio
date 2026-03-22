@@ -1,36 +1,31 @@
 @page "/projects"
+@inject LanguageService Lang
+@implements IDisposable
 
 <PageTitle>Projects — Sébastien Bart</PageTitle>
 
 <!-- HERO -->
 <div class="page-hero">
     <div class="container">
-        <h1>My Projects</h1>
-        <p>A curated selection of personal and professional work.</p>
+        <h1>@Lang.T("projects.hero.title")</h1>
+        <p>@Lang.T("projects.hero.subtitle")</p>
     </div>
 </div>
 
 <!-- FEATURED PROJECT -->
 <div class="section-full">
     <div class="section">
-        <h2 class="section-title"><span class="title-accent">★</span> Featured Project</h2>
-        <div class="project-card" style="border-color: var(--shadow);">
+        <h2 class="section-title"><span class="title-accent">★</span>@Lang.T("projects.featured.label")</h2>
+        <div class="project-card" style="border-color: var(--dark-navy);">
             <div class="project-card-header card-yellow">
                 <h3 class="card-title" style="font-size: 2rem;">1v1 me bro</h3>
-                <p class="card-meta">2020 &mdash; Video game</p>
+                <p class="card-meta">@Lang.T("projects.featured.meta")</p>
             </div>
             <div class="project-card-body" style="background-color: var(--off-white);">
-                <img src="images/1v1_me_bro.jpeg" alt="1v1 me bro photo" height="256px" style="margin: auto; display: block; border-radius: 8px; margin-bottom: 1rem;">
-                <p>
-                    My personal favorite, my game, is 100% handmade and homemade! 
-                    From gameplay to sound, including the UIs and, of course, the programming. 
-                    It's my first major personal project, and it was a real challenge I set for myself during the COVID-19 lockdown. 
-                    I finally had access to good hardware capable of running Unity, and also plenty of time, so I put all of that to good use for this project.
-                </p>
-                <p style="margin-top: 0.75rem;">
-                    It allowed me to improve my development skills and also to understand the software development lifecycle. 
-                    Although I worked alone, I got a taste of defining the specifications, designing, deploying, and maintaining the game!
-                </p>
+                <img src="images/1v1_me_bro.jpeg" alt="1v1 me bro" height="256px"
+                     style="margin: auto; display: block; border-radius: 8px; margin-bottom: 1rem;">
+                <p>@Lang.T("projects.featured.desc1")</p>
+                <p style="margin-top: 0.75rem;">@Lang.T("projects.featured.desc2")</p>
             </div>
             <div class="project-card-footer" style="background-color: var(--sage); justify-content: space-between;">
                 <div class="tags" style="margin: 0;">
@@ -40,7 +35,7 @@
                     <span class="tag tag-orange">Software management</span>
                 </div>
                 <div style="display: flex; gap: 0.5rem; flex-shrink: 0;">
-                    <a href="#" class="btn btn-primary">Play Store page</a>
+                    <a href="#" class="btn btn-primary">@Lang.T("projects.featured.btn")</a>
                 </div>
             </div>
         </div>
@@ -50,41 +45,35 @@
 <!-- ALL PROJECTS GRID -->
 <div class="section-full section-alt">
     <div class="section">
-        <h2 class="section-title"><span class="title-accent">—</span> All Projects</h2>
+        <h2 class="section-title"><span class="title-accent">—</span>@Lang.T("projects.all.label")</h2>
         <div class="grid-3">
 
-            <!-- Project 1 -->
+            <!-- Project 1 — Dofus combat -->
             <div class="project-card">
                 <div class="project-card-header card-teal">
-                    <h3 class="card-title">Dofus - combat system</h3>
-                    <p class="card-meta">2024/2025 &mdash; Fullstack</p>
+                    <h3 class="card-title">Dofus — combat system</h3>
+                    <p class="card-meta">@Lang.T("projects.p1.meta")</p>
                 </div>
                 <div class="project-card-body">
-                    <p class="card-text">
-                        I was responsible for refactoring many combat preview mechanics. 
-                        Far more than just simple calculations, troubleshooting bugs required me to work on the data, the client, and the server.
-                    </p>
+                    <p class="card-text">@Lang.T("projects.p1.desc")</p>
                 </div>
                 <div class="project-card-footer">
                     <div class="tags" style="margin: 0; flex: 1;">
                         <span class="tag tag-blue">C#</span>
-                        <span class="tag">SQL / ORACLE</span>
+                        <span class="tag">SQL / Oracle</span>
                         <span class="tag tag-teal">Java</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 2 -->
+            <!-- Project 2 — Dofus UIs -->
             <div class="project-card">
                 <div class="project-card-header card-orange">
-                    <h3 class="card-title">Dofus - new UIs</h3>
-                    <p class="card-meta">2023 &mdash; Frontend</p>
+                    <h3 class="card-title">Dofus — new UIs</h3>
+                    <p class="card-meta">@Lang.T("projects.p2.meta")</p>
                 </div>
                 <div class="project-card-body">
-                    <p class="card-text">
-                        I developed the technical aspects of the game's new interfaces, taking into account the new specifications and features.
-                        Working directly with the UI/UX lead, I handled everything from prototyping mockups to user testing.
-                    </p>
+                    <p class="card-text">@Lang.T("projects.p2.desc")</p>
                 </div>
                 <div class="project-card-footer">
                     <div class="tags" style="margin: 0; flex: 1;">
@@ -97,16 +86,14 @@
                 </div>
             </div>
 
-            <!-- Project 3 -->
+            <!-- Project 3 — Decathlon monitoring -->
             <div class="project-card">
                 <div class="project-card-header card-red">
-                    <h3 class="card-title">Decathlon - monitoring</h3>
-                    <p class="card-meta">2020/2021 - data</p>
+                    <h3 class="card-title">Decathlon — monitoring</h3>
+                    <p class="card-meta">@Lang.T("projects.p3.meta")</p>
                 </div>
                 <div class="project-card-body">
-                    <p class="card-text">
-                        I designed and implemented KPIs and monitoring dashboards for the Decathlon production platform, with a strong focus on performance and reliability metrics.
-                    </p>
+                    <p class="card-text">@Lang.T("projects.p3.desc")</p>
                 </div>
                 <div class="project-card-footer">
                     <div class="tags" style="margin: 0; flex: 1;">
@@ -117,61 +104,50 @@
                 </div>
             </div>
 
-            <!-- Project 4 -->
+            <!-- Project 4 — Picross Maker -->
             <div class="project-card">
                 <div class="project-card-header card-navy">
                     <h3 class="card-title">Picross Maker</h3>
-                    <p class="card-meta">2021 &mdash; product owner</p>
+                    <p class="card-meta">@Lang.T("projects.p4.meta")</p>
                 </div>
                 <div class="project-card-body">
-                    <p class="card-text">
-                        As part of learning agile methodology, I took on the role of product owner on a project 
-                        I led with my fellow students. I defined the application's requirements, task priorities, 
-                        and user stories.
-                    </p>
+                    <p class="card-text">@Lang.T("projects.p4.desc")</p>
                 </div>
                 <div class="project-card-footer">
                     <div class="tags" style="margin: 0; flex: 1;">
                         <span class="tag tag-blue">C#</span>
                         <span class="tag">Unity</span>
-                        <span class="tag tag-teal">Agile management</span>
+                        <span class="tag tag-teal">Agile</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 5 -->
+            <!-- Project 5 — Magic card finder -->
             <div class="project-card">
                 <div class="project-card-header" style="background-color: var(--mid-blue);">
                     <h3 class="card-title" style="color: var(--off-white);">Magic card finder</h3>
-                    <p class="card-meta" style="color: var(--light-blue);">2021 &mdash; Solo dev</p>
+                    <p class="card-meta" style="color: var(--light-blue);">@Lang.T("projects.p5.meta")</p>
                 </div>
                 <div class="project-card-body">
-                    <p class="card-text">
-                        Started as a student project, I finalized the application and then released it on the Play Store.
-                        It allows Magic: The Gathering card game players to search for cards using several specific filters 
-                        and save them for easier retrieval and to monitor their price fluctuations.
-                    </p>
+                    <p class="card-text">@Lang.T("projects.p5.desc")</p>
                 </div>
                 <div class="project-card-footer">
                     <div class="tags" style="margin: 0; flex: 1;">
                         <span class="tag tag-blue">Java</span>
-                        <span class="tag">Android studio</span>
-                        <span class="tag tag-teal">API rest</span>
+                        <span class="tag">Android Studio</span>
+                        <span class="tag tag-teal">REST API</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 6 -->
+            <!-- Project 6 — VR meet -->
             <div class="project-card">
                 <div class="project-card-header" style="background-color: var(--gold);">
                     <h3 class="card-title">VR meet</h3>
-                    <p class="card-meta">2021 &mdash; FullStack</p>
+                    <p class="card-meta">@Lang.T("projects.p6.meta")</p>
                 </div>
                 <div class="project-card-body">
-                    <p class="card-text">
-                        Sunt in culpa qui officia deserunt mollit anim id est laborum. A task scheduling app
-                        with calendar view, recurring reminders, and team sharing features.
-                    </p>
+                    <p class="card-text">@Lang.T("projects.p6.desc")</p>
                 </div>
                 <div class="project-card-footer">
                     <div class="tags" style="margin: 0; flex: 1;">
@@ -184,26 +160,21 @@
                 </div>
             </div>
 
-            <!-- Project 7 -->
+            <!-- Project 7 — This portfolio -->
             <div class="project-card">
                 <div class="project-card-header" style="background-color: var(--light-blue);">
-                    <h3 class="card-title">this portfolio!</h3>
-                    <p class="card-meta">2026 &mdash; FullStack</p>
+                    <h3 class="card-title">This portfolio!</h3>
+                    <p class="card-meta">@Lang.T("projects.p7.meta")</p>
                 </div>
                 <div class="project-card-body">
-                    <p class="card-text">
-                        Sunt in culpa qui officia deserunt mollit anim id est laborum. A task scheduling app
-                        with calendar view, recurring reminders, and team sharing features.
-                    </p>
+                    <p class="card-text">@Lang.T("projects.p7.desc")</p>
                 </div>
                 <div class="project-card-footer">
                     <div class="tags" style="margin: 0; flex: 1;">
                         <span class="tag tag-blue">C#</span>
-                        <span class="tag">ASP. NET</span>
+                        <span class="tag">ASP.NET</span>
                         <span class="tag tag-teal">Razor</span>
                         <span class="tag tag-orange">Blazor</span>
-                        <span class="tag tag-red">html</span>
-                        <span class="tag tag-yellow">css</span>
                     </div>
                 </div>
             </div>
@@ -211,3 +182,8 @@
         </div>
     </div>
 </div>
+
+@code {
+    protected override void OnInitialized() => Lang.OnLanguageChanged += StateHasChanged;
+    public void Dispose() => Lang.OnLanguageChanged -= StateHasChanged;
+}
