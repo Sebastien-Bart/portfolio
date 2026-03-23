@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Portfolio</title>
+    <!--
+        GitHub Pages 404 redirect trick for Blazor WASM SPA.
+        Redirects all 404s back to index.html so Blazor can handle the route.
+        Source: https://github.com/rafgraph/spa-github-pages
+    -->
+    <script>
+        // Single Page Apps for GitHub Pages
+        // Preserve the path and query string, then redirect to index.html
+        var segmentCount = 1; // 0 for custom domain, 1 for github.io/<reponame>
+        var l = window.location;
+        l.replace(
+            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+            l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?p=/' +
+            l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
+            (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+            l.hash
+        );
+    </script>
+</head>
+<body></body>
+</html>

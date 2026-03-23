@@ -3,17 +3,17 @@
 
 <nav class="navbar">
     <div class="navbar-inner">
-        <a href="/" class="navbar-brand">
+        <a href="/portfolio" class="navbar-brand">
             <span class="brand-bracket">[</span>PORTFOLIO<span class="brand-bracket">]</span>
         </a>
         <button class="navbar-toggle" @onclick="ToggleMenu" aria-label="Toggle navigation">
             <span></span><span></span><span></span>
         </button>
         <ul class="navbar-links @(menuOpen ? "open" : "")">
-            <li><NavLink href="/" Match="NavLinkMatch.All" class="nav-link" @onclick="CloseMenu">@Lang.T("nav.home")</NavLink></li>
-            <li><NavLink href="/projects" class="nav-link" @onclick="CloseMenu">@Lang.T("nav.projects")</NavLink></li>
-            <li><NavLink href="/about" class="nav-link" @onclick="CloseMenu">@Lang.T("nav.about")</NavLink></li>
-            <li><NavLink href="/contact" class="nav-link" @onclick="CloseMenu">@Lang.T("nav.contact")</NavLink></li>
+            <li><NavLink href="/portfolio" Match="NavLinkMatch.All" class="nav-link" @onclick="CloseMenu">@Lang.T("nav.home")</NavLink></li>
+            <li><NavLink href="/portfolio/projects" class="nav-link" @onclick="CloseMenu">@Lang.T("nav.projects")</NavLink></li>
+            <li><NavLink href="/portfolio/about" class="nav-link" @onclick="CloseMenu">@Lang.T("nav.about")</NavLink></li>
+            <li><NavLink href="/portfolio/contact" class="nav-link" @onclick="CloseMenu">@Lang.T("nav.contact")</NavLink></li>
             <li class="lang-switcher">
                 <button class="lang-btn @(Lang.Current == LanguageService.Language.EN ? "active" : "")"
                         @onclick='() => Lang.SetLanguage(LanguageService.Language.EN)'>EN</button>
